@@ -940,6 +940,7 @@ export interface Collection<TSchema = Default> {
     /** http://mongodb.github.io/node-mongodb-native/3.1/api/Collection.html#find */
     find<T = TSchema>(query?: FilterQuery<TSchema>): Cursor<T>;
     find<T = TSchema>(query: FilterQuery<TSchema>, options?: FindOneOptions): Cursor<T>;
+    find<T = TSchema>(query: FilterQuery<TSchema>, options: FindOneOptions, callback: MongoCallback<Cursor<T>>): void;
     /** http://mongodb.github.io/node-mongodb-native/3.1/api/Collection.html#findOne */
     findOne<T = TSchema>(filter: FilterQuery<TSchema>, callback: MongoCallback<T | null>): void;
     findOne<T = TSchema>(filter: FilterQuery<TSchema>, options?: FindOneOptions): Promise<T | null>;
